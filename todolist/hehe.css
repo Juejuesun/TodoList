@@ -138,5 +138,11 @@ body{
 	align-self: center; */
 	margin-left: 42%;
 	margin-bottom: 30px;
-	
+}
+
+#time{
+	color: white;
+	text-align: center;
+	font-size: 30px;
+	line-height: 1.5;
 }
