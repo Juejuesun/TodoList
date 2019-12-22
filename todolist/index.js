@@ -30,7 +30,7 @@ function load(){
             // alert(1);
             todoString += "<li class='block'>"
                 + "<input class='done1' type='checkbox' onchange='update("+i+")'>"
-                + "<p class='lst' id='p-"+i+"' οnclick='edit("+i+")'>" + todolist[i].todo + "</p>" 
+                + "<p class='lst' id='p-"+i+"' onclick='edit("+i+")'>"+ todolist[i].todo + "</p>" 
                 + "<a class='del' href='javascript:remove("+i+")'>删除</a>" +
                 "</li>";
         }
@@ -57,19 +57,26 @@ function update(i) {
     var todolist = loadData();
     if(todolist[i].done)
         todolist[i].done =false;
-    else
+    else{
         todolist[i].done = true;
+        // change(i);
+    }
+        
     saveData(todolist);
     load();
     // alert("hh");
     // edit(i);
+    
 }
 
 function change(i)
 {
     var todolist = loadData();
     var tochg = document.getElementById("p-"+i);
-    
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    style.stylesheet.cssText = 'text-decoration:line-through;';
+    tochg.appendChild(style);
 }
 
 function remove(i) {
@@ -124,6 +131,32 @@ function edit(i) {
     inputId.onkeypress = enter;     //对按键事件进行监控
 }
 
+function timelimit(a){
+    if (a<10) {
+        a="0"+a;
+    }
+    return a;
+}
+
+function renderTime() {
+    let now = new Date();
+    let year = now.getFullYear();
+    let mon = now.getMonth()+1;
+    let date = now.getDate();
+    let time = now.getTime();
+    let hours = now.getHours();
+    let mins = now.getMinutes();
+    let sed = now.getSeconds();
+    // console.log(year,mon,date,hours,mins,sed);//打印
+    hours = timelimit(hours);
+    mins = timelimit(mins);
+    sed = timelimit(sed);
+    let ctime = year+"年 "+mon+"月 "+date+"日 "+"<br>"+hours+":"+mins+":"+sed;
+    document.getElementById("time").innerHTML = ctime;
+}
+
+renderTime();
+setInterval(renderTime,1000);
 window.addEventListener("load", load,false);  //页面加载完毕调用load函数
 document.getElementById("clearbutton").onclick = clear;
 document.getElementById("new").onkeypress = function (event) {
