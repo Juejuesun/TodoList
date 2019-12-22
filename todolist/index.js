@@ -105,30 +105,47 @@ function clear() {
 
 function edit(i) {
     var p = document.getElementById('p-' + i),
-        pContent = p.innerHTML,
+        title = p.innerHTML,
         inputId;
 
-    function confirm() {
-        if (inputId.value.length === 0) {
-            p.innerHTML = pContent;
-            alert("内容不能为空");
-        }
-        else {
-            update(i, "todo", inputId.value);
-        }
-    }
+    // function confirm() {
+    //     if (inputId.value.length === 0) {
+    //         p.innerHTML = title;
+    //         alert("内容不能为空");
+    //     }
+    //     else {
+    //         update(i, "todo", inputId.value);
+    //     }
+    // }
     function enter(e) {
         if (e.keyCode==13){
             confirm();
         }
     }
-
-    p.innerHTML = "<input type='text' id='input-"+i+"' value='"+pContent+"'>";
+    p.innerHTML="<input id='input-"+i+"' value='"+title+"' />";
     inputId = document.getElementById('input-'+i);
     inputId.focus();
     inputId.setSelectionRange(0, inputId.value.length);
-    inputId.onblur = confirm;
-    inputId.onkeypress = enter;     //对按键事件进行监控
+    // inputId.onblur = confirm;
+    // inputId.onkeypress = enter;     //对按键事件进行监控
+    inputId.onblur = function (){
+		if(inputId.value.length == 0){
+			p.innerHTML = title;
+			alert("不能为空！");
+		}
+		else{
+			updateedt(i,inputId.value);
+		}
+	};
+}
+
+function updateedt(i,value){
+	var data = loadData();
+	var todo = data.splice(i,1)[0];
+	todo.todo = value;
+	data.splice(i,0,todo);
+	saveData(data);
+	load();
 }
 
 function timelimit(a){
