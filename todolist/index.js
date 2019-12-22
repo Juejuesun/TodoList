@@ -40,7 +40,7 @@ function load(){
             else{
                 todoString += "<li class='block'>"
                 + "<input class='done1' type='checkbox' checked onchange='update("+i+")'>"
-                + "<p class='lst' style='text-decoration:line-through;' id='p-"+i+"' onclick='edit("+i+")'>"+ todolist[i].todo + "</p>" 
+                + "<p class='lst' style='text-decoration:line-through;color: rgba(13, 25, 65, 0.74);' id='p-"+i+"' onclick='edit("+i+")'>"+ todolist[i].todo + "</p>" 
                 + "<a class='del' href='javascript:remove("+i+")'>删除</a>" +
                 "</li>";
                 dcount++;
