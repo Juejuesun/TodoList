@@ -13,9 +13,21 @@
     </header>
     <main>
         <div class="pti">
-            <div style="align-self: center;">邮箱：<input id="email"></div> 
-            <div style="align-self: center;">密码：<input id="sec1"></div>
-            <div style="align-self: center;">再次输入：<input id="sec2"></div> 
+            <div class="post" style="align-self: center;">邮箱：<input id="email">
+                <span style="font-size: 15px; color: rgba(0, 0, 0, 0.52);">
+                    请按回车
+                </span>
+            </div> 
+            <div class="post" style="align-self: center;">密码：<input id="sec1">
+                <span style="font-size: 15px; color: rgba(0, 0, 0, 0.52);">
+                    请按回车
+                </span>
+            </div>
+            <div class="post" style="align-self: center;">再次输入：<input id="sec2">
+                <span style="font-size: 15px; color: rgba(0, 0, 0, 0.52);">
+                    请按回车
+                </span>
+            </div> 
         </div>
         <section class="dec">
             <button id="sub" class="btn">注册</button>
@@ -61,7 +73,7 @@
                     console.log(arr2);
                     if(!arr2){
                         document.getElementById("sec1").value = "";
-                        alert("请加强密码强度！");
+                        alert("请加强密码强度！密码长度（9~15 位）不能有重复的字符，数字要求在2~8之间，可以包含任意大小写字母，必须有三个大写字母，必须包含{#,&,*,?}四个特殊字符中的一个）。");
                         tt2 = false;
                     }else{
                         console.log("tt1="+tt1);
