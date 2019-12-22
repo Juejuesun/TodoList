@@ -13,9 +13,9 @@
     </header>
     <main>
         <div class="pti">
-            <div style="align-self: center;">邮箱：<input></div> 
-            <div style="align-self: center;">密码：<input></div>
-            <div style="align-self: center;">再次输入：<input></div> 
+            <div style="align-self: center;">邮箱：<input id="email"></div> 
+            <div style="align-self: center;">密码：<input id="sec1"></div>
+            <div style="align-self: center;">再次输入：<input id="sec2"></div> 
         </div>
         <section class="dec">
             <button class="btn">注册</button>
@@ -24,5 +24,56 @@
     <footer>
 
     </footer>
+    <script>
+        // var str1 = document.getElementById("email").value;
+        // console.log(str1);
+        let tt1,tt2,tt3;
+        document.getElementById("email").onkeypress = function (event) {
+            if(event.keyCode === 13){
+                var str1 = document.getElementById("email").value;
+                var patt1 = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                var arr = str1.match(patt1);
+                if(!arr){
+                    document.getElementById("email").value = "";
+                    alert("请输入正确邮箱");
+                }
+                console.log(arr);
+            }else{
+                tt1 = 1;
+            }
+        }
+        document.getElementById("sec1").onkeypress = function (event) {
+            if(event.keyCode === 13){
+                var str1 = document.getElementById("sec1").value;
+                var patt1 = /^(?=(.*?[A-Z]){3,})(?=.*?[a-z])(?=.*?[2-8])(?=.*?[#?!@$%^&*-]).{9,15}$/;
+                var arr1 = str1.match(patt1);
+                console.log(arr1);
+                if(!arr1){
+                    document.getElementById("sec1").value = "";
+                    alert("请加强密码强度！");
+                }else{
+                    var arr2 = !str1.match(".*(.).*\\1.*");
+                    console.log(arr2);
+                    if(!arr2){
+                        document.getElementById("sec1").value = "";
+                        alert("请加强密码强度！");
+                    }else{
+                        console.log("tt1="+tt1);
+                    }
+                }
+            }
+        }
+        document.getElementById("sec2").onkeypress = function (event) {
+            if(event.keyCode === 13){
+                var str1 = document.getElementById("sec1").value;
+                var str2 = document.getElementById("sec2").value;
+                if(str1!=str2){
+                    document.getElementById("sec2").value = "";
+                    alert("两次密码输入不一致！");
+                }
+                console.log(str2);
+            }
+        }
+    </script>
 </body>
 </html>
