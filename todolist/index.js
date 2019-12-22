@@ -7,10 +7,11 @@ function addTodolist(e) {
         // alert("不能为空");
         return;
     }
+    var _input = document.getElementById("new");
     addlist.todo = document.getElementById("new").value;
     todolist.push(addlist);
     saveData(todolist);
-    // document.getElementById("new").value = "";
+    _input.reset();
     load();
     document.getElementById("new").focus();
 }
