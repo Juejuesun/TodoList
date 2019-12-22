@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoList简易</title>
+    <link rel="stylesheet" href="hehe.css">
+</head>
+<body>
+    <header>
+        <div class="box1"></div>
+        <div class="hh1">ToDo</div>
+        <form style="display: flex;justify-content: center;">
+            <input id="new" placeholder="啊！你要做什么？" autofocus autocomplete="off" required>
+            <!-- <button id="newbtn">添加</button> -->
+        </form>
+    </header>
+    <section>
+        <div class="waiting">待做的项目：</div>
+        <ul id="todolist">
+            
+        </ul>
+        <!-- <li>
+            <input class="done1" type="checkbox" onchange="update(0)">
+            <p>aaa</p>
+        </li> -->
+        <!-- <div class="waiting">已完成的项目：</div>
+        <ul id="donelist">
+            <li></li>
+        </ul> -->
+        <button id="clearbutton">全部删除</button>
+        <div style="text-align: center;">
+            未完成<span id="todocount"></span>
+            已完成<span id="donecount"></span>
+        </div>
+        
+    </section>
+
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="index.js">
+        // document.getElementById("newbtn").onclick = function () {
+        //     addTodolist();
+        // };
+    </script>
+</body>
+</html>
