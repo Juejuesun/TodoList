@@ -18,7 +18,7 @@
             <div style="align-self: center;">再次输入：<input id="sec2"></div> 
         </div>
         <section class="dec">
-            <button class="btn">注册</button>
+            <button id="sub" class="btn">注册</button>
         </section>
     </main>
     <footer>
@@ -28,19 +28,23 @@
         // var str1 = document.getElementById("email").value;
         // console.log(str1);
         let tt1,tt2,tt3;
+        // tt1 = true;
         document.getElementById("email").onkeypress = function (event) {
             if(event.keyCode === 13){
-                var str1 = document.getElementById("email").value;
-                var patt1 = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-                var arr = str1.match(patt1);
-                if(!arr){
-                    document.getElementById("email").value = "";
-                    alert("请输入正确邮箱");
-                }
-                console.log(arr);
-            }else{
-                tt1 = 1;
+                    var str1 = document.getElementById("email").value;
+                    var patt1 = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                    var arr = str1.match(patt1);
+                    if(!arr){
+                        document.getElementById("email").value = "";
+                        alert("请输入正确邮箱");
+                        tt1 = false;
+                    }else{
+                        console.log(arr);
+                        tt1 = true;
+                    }
+                    
             }
+                    
         }
         document.getElementById("sec1").onkeypress = function (event) {
             if(event.keyCode === 13){
@@ -51,14 +55,17 @@
                 if(!arr1){
                     document.getElementById("sec1").value = "";
                     alert("请加强密码强度！");
+                    tt2 = false;
                 }else{
                     var arr2 = !str1.match(".*(.).*\\1.*");
                     console.log(arr2);
                     if(!arr2){
                         document.getElementById("sec1").value = "";
                         alert("请加强密码强度！");
+                        tt2 = false;
                     }else{
                         console.log("tt1="+tt1);
+                        tt2 = true;
                     }
                 }
             }
@@ -70,10 +77,26 @@
                 if(str1!=str2){
                     document.getElementById("sec2").value = "";
                     alert("两次密码输入不一致！");
+                    tt3 = false;
+                }else{
+                    console.log(str2);
+                    tt3 = true;
                 }
-                console.log(str2);
+               
             }
         }
+
+        document.getElementById("sub").onclick = function () {
+                if(tt1&&tt2&&tt3){
+                    alert("注册成功！")
+                    document.getElementById("email").value = "";
+                    document.getElementById("sec1").value = "";
+                    document.getElementById("sec2").value = "";
+                }
+                else{
+                    alert("请输入注册信息！");
+                }
+            }
     </script>
 </body>
 </html>
