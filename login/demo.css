@@ -53,14 +53,17 @@ header{
 #email{
     height: 30px;
     width: 50%;
+    font-size: 25px;
 }
 
 #sec1{
     height: 30px;
     width: 50%;
+    font-size: 30px;
 }
 
 #sec2{
     height: 30px;
     width: 50%;
+    font-size: 30px;
 }
