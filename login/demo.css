@@ -1,0 +1,45 @@
+header{
+    height: 80px;
+    background-color: cornflowerblue;
+}
+
+.log{
+    font-size: 36px;
+    text-align: center;
+    color: rgb(238, 248, 183);
+    font-family: "trebuchet MS", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    word-spacing: 16.2pt;
+    letter-spacing: 10pt;
+    line-height: 2.5;
+}
+
+.pti{
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+
+.btn {
+    background-color: cornflowerblue; /* Green */
+    border: 1px solid rgb(66, 101, 165);
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: .5em;
+    display: inline-block;
+    font-size: 15px;
+    cursor: pointer;
+    /* float: left; */
+}
+
+.btn:hover {
+    background-color: rgb(115, 155, 230);
+}
+
+.dec{
+    display: flex;
+    justify-content: center;
+}
