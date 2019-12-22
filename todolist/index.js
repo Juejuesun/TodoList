@@ -29,20 +29,34 @@ function load(){
         
         for (var i=0;i<todolist.length;i++){
             // alert(1);
-            todoString += "<li class='block'>"
+            if(todolist[i].done==false){
+                todoString += "<li class='block'>"
                 + "<input class='done1' type='checkbox' onchange='update("+i+")'>"
                 + "<p class='lst' id='p-"+i+"' onclick='edit("+i+")'>"+ todolist[i].todo + "</p>" 
                 + "<a class='del' href='javascript:remove("+i+")'>删除</a>" +
                 "</li>";
+                tcount++;
+            }
+            else{
+                todoString += "<li class='block'>"
+                + "<input class='done1' type='checkbox' checked onchange='update("+i+")'>"
+                + "<p class='lst' style='text-decoration:line-through;' id='p-"+i+"' onclick='edit("+i+")'>"+ todolist[i].todo + "</p>" 
+                + "<a class='del' href='javascript:remove("+i+")'>删除</a>" +
+                "</li>";
+                dcount++;
+            }
+            
         }
         // console.log(todolist);
-        for(var i=0;i<todolist.length;i++){
+        // for(var i=0;i<todolist.length;i++){
             
-            if(todolist[i].done==false)
-                tcount++;
-            else
-                dcount++;
-        }
+        //     if(todolist[i].done==false)
+        //         tcount++;
+        //     else
+        //     {
+        //         dcount++;
+        //     }      
+        // }
         todo.innerHTML = todoString;
         todocount.innerHTML = tcount;
         donecount.innerHTML = dcount;
@@ -74,10 +88,11 @@ function change(i)
 {
     var todolist = loadData();
     var tochg = document.getElementById("p-"+i);
-    var style = document.createElement('style');
-    style.type = 'text/css';
-    style.stylesheet.cssText = 'text-decoration:line-through;';
-    tochg.appendChild(style);
+    tochg.innerHTML = "<p class='lst' style = 'text-decoration:line-through;'  id='p-"+i+"' onclick='edit("+i+")'>"+ todolist[i].todo + "</p>";
+    // var style = document.createElement('style');
+    // style.type = 'text/css';
+    // style.stylesheet.cssText = 'text-decoration:line-through;';
+    // tochg.appendChild(style);
 }
 
 function remove(i) {
@@ -114,7 +129,7 @@ function edit(i) {
             confirm();
         }
     }
-    p.innerHTML="<input id='input-"+i+"' value='"+title+"' />";
+    p.innerHTML="<input required id='input-"+i+"' value='"+title+"' />";
     inputId = document.getElementById('input-'+i);
     inputId.focus();
     inputId.setSelectionRange(0, inputId.value.length);
