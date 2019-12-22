@@ -108,15 +108,6 @@ function edit(i) {
         title = p.innerHTML,
         inputId;
 
-    // function confirm() {
-    //     if (inputId.value.length === 0) {
-    //         p.innerHTML = title;
-    //         alert("内容不能为空");
-    //     }
-    //     else {
-    //         update(i, "todo", inputId.value);
-    //     }
-    // }
     function enter(e) {
         if (e.keyCode==13){
             confirm();
@@ -126,8 +117,6 @@ function edit(i) {
     inputId = document.getElementById('input-'+i);
     inputId.focus();
     inputId.setSelectionRange(0, inputId.value.length);
-    // inputId.onblur = confirm;
-    // inputId.onkeypress = enter;     //对按键事件进行监控
     inputId.onblur = function (){
 		if(inputId.value.length == 0){
 			p.innerHTML = title;
