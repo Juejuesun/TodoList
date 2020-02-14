@@ -48,6 +48,9 @@
                     var str1 = document.getElementById("email").value;
                     var patt1 = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
                     var arr = str1.match(patt1);
+                    // console.log(typeof arr);
+                    // var str = String(arr);
+                    // console.log(str);
                     if(!arr){
                         document.getElementById("email").value = "";
                         alert("请输入正确邮箱");
@@ -66,6 +69,10 @@
                 var patt1 = /^(?=(.*?[A-Z]){3,})(?=.*?[a-z])(?=.*?[2-8])(?=.*?[#?!@$%^&*-]).{9,15}$/;
                 var arr1 = str1.match(patt1);
                 console.log(arr1);
+                // var arr2 = String(arr1.input);
+                // console.log(arr2);
+                // var arr3 = arr2.match("[2-8]");
+                // console.log(arr3);
                 if(!arr1){
                     document.getElementById("sec1").value = "";
                     alert("请加强密码强度！");
@@ -75,7 +82,7 @@
                     console.log(arr2);
                     if(!arr2){
                         document.getElementById("sec1").value = "";
-                        alert("请加强密码强度！密码长度（9~15 位）不能有重复的字符，数字要求在2~8之间，可以包含任意大小写字母，必须有三个大写字母，必须包含{#,&,*,?}四个特殊字符中的一个）。");
+                        alert("请加强密码强度！密码长度（9~15 位）不能有重复的字符，数字要求2~8之间，可以包含任意大小写字母，必须有三个大写字母，必须包含{#,&,*,?}四个特殊字符中的一个）。");
                         tt2 = false;
                     }else{
                         console.log("tt1="+tt1);
